@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>✨ Stellar SMP S2 | Minecraft Bedrock RPG</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⭐</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Plus Jakarta Sans',sans-serif;background:linear-gradient(135deg,#0a0e17 0%,#141a26 50%,#1a2332 100%);min-height:100vh;padding:24px 20px;color:#e8edf5;position:relative}
+        body::before{content:"";position:fixed;top:0;left:0;width:100%;height:100%;background-image:repeating-linear-gradient(0deg,rgba(255,215,0,0.02) 0px,transparent 1px,transparent 40px,rgba(255,215,0,0.02) 41px),repeating-linear-gradient(90deg,rgba(255,215,0,0.02) 0px,transparent 1px,transparent 40px,rgba(255,215,0,0.02) 41px);pointer-events:none;z-index:0}
+        .container{max-width:1200px;margin:0 auto;position:relative;z-index:2}
+        .header{text-align:center;margin-bottom:30px}
+        .server-title{font-size:clamp(2.5rem,8vw,4.5rem);font-weight:800;background:linear-gradient(135deg,#fbbf24 0%,#ec4899 50%,#8b5cf6 100%);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 30px rgba(236,72,153,0.3);letter-spacing:-0.02em;margin-bottom:8px}
+        .season-badge{display:inline-block;background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#0a0e17;font-weight:700;font-size:1.1rem;padding:6px 20px;border-radius:50px;margin-bottom:12px;box-shadow:0 4px 15px rgba(251,191,36,0.3)}
+        .server-subtitle{font-size:1.1rem;color:#9ca3af;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap}
+        .server-subtitle i{color:#10b981}
+        .ip-box{background:rgba(20,26,38,0.9);backdrop-filter:blur(10px);border:2px solid rgba(251,191,36,0.3);border-radius:20px;padding:20px 30px;margin-bottom:30px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:15px;box-shadow:0 10px 40px rgba(0,0,0,0.3)}
+        .ip-info{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+        .ip-address{display:flex;align-items:center;gap:10px;background:#0f141f;padding:12px 20px;border-radius:15px;border:1px solid rgba(255,255,255,0.1)}
+        .ip-address i{color:#fbbf24;font-size:1.3rem}
+        .ip-address span{font-size:1.5rem;font-weight:700;font-family:monospace;letter-spacing:1px;color:#e8edf5}
+        .port-badge{background:#374151;padding:8px 16px;border-radius:30px;font-size:1rem;font-weight:600}
+        .port-badge i{color:#10b981;margin-right:6px}
+        .copy-btn{background:linear-gradient(135deg,#fbbf24,#f59e0b);border:none;padding:14px 28px;border-radius:15px;font-size:1rem;font-weight:700;color:#0a0e17;cursor:pointer;display:flex;align-items:center;gap:10px;transition:all 0.3s;border:1px solid rgba(255,255,255,0.2)}
+        .copy-btn:hover{transform:scale(1.02);box-shadow:0 5px 20px rgba(251,191,36,0.4)}
+        .copy-btn.copied{background:#10b981;color:white}
+        .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px;margin-bottom:30px}
+        .info-card{background:rgba(20,26,38,0.8);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:20px;text-align:center;transition:all 0.3s}
+        .info-card:hover{border-color:rgba(251,191,36,0.3);transform:translateY(-3px)}
+        .info-card i{font-size:2rem;color:#fbbf24;margin-bottom:12px}
+        .info-card h3{font-size:0.9rem;font-weight:500;color:#9ca3af;margin-bottom:6px}
+        .info-card p{font-size:1.2rem;font-weight:700;color:#e8edf5}
+        .main-content{display:grid;grid-template-columns:1fr 1fr;gap:25px;margin-bottom:30px}
+        @media (max-width:768px){.main-content{grid-template-columns:1fr}}
+        .section{background:rgba(20,26,38,0.8);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:25px}
+        .section-title{display:flex;align-items:center;gap:10px;font-size:1.4rem;font-weight:700;margin-bottom:20px;color:#fbbf24;border-bottom:2px solid rgba(251,191,36,0.2);padding-bottom:15px}
+        .section-title i{font-size:1.3rem}
+        .feature-tags{display:flex;flex-wrap:wrap;gap:10px}
+        .feature-tag{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);padding:8px 16px;border-radius:30px;font-size:0.9rem;font-weight:500;color:#fcd34d;transition:all 0.2s}
+        .feature-tag:hover{background:rgba(251,191,36,0.2)}
+        .feature-tag i{margin-right:6px;font-size:0.8rem}
+        .rules-list{list-style:none}
+        .rules-list li{padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;align-items:flex-start;gap:12px;font-size:0.95rem}
+        .rules-list li i{margin-top:3px;font-size:1rem}
+        .rules-list .rule-bad i{color:#ef4444}
+        .rules-list .rule-good i{color:#10b981}
+        .rules-list .rule-warn i{color:#f59e0b}
+        .rule-section-title{font-weight:600;color:#9ca3af;margin:15px 0 10px 0;font-size:0.9rem;text-transform:uppercase;letter-spacing:1px}
+        .extra-info{margin-top:20px;padding:15px;background:rgba(15,20,31,0.6);border-radius:15px}
+        .extra-info p{display:flex;align-items:center;gap:10px;margin-bottom:8px;color:#9ca3af;font-size:0.9rem}
+        .extra-info p i{color:#fbbf24;width:20px}
+        .social-links{display:flex;flex-direction:column;gap:12px}
+        .social-link{display:flex;align-items:center;gap:15px;padding:15px 20px;background:rgba(15,20,31,0.6);border-radius:16px;text-decoration:none;color:#e8edf5;transition:all 0.3s;border:1px solid rgba(255,255,255,0.05)}
+        .social-link:hover{background:rgba(251,191,36,0.1);border-color:rgba(251,191,36,0.3);transform:translateX(5px)}
+        .social-link i{font-size:1.8rem;width:35px;text-align:center}
+        .social-link .fa-discord{color:#5865F2}
+        .social-link .fa-whatsapp{color:#25D366}
+        .social-link .fa-book{color:#fbbf24}
+        .social-link div{flex:1}
+        .social-link h4{font-weight:600;margin-bottom:3px}
+        .social-link p{font-size:0.8rem;color:#9ca3af}
+        .footer{text-align:center;margin-top:30px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.05);color:#6b7280;font-size:0.9rem}
+        .footer i{color:#ef4444;margin:0 4px}
+        .music-player{position:fixed;bottom:20px;right:20px;z-index:100;background:rgba(20,26,38,0.95);backdrop-filter:blur(10px);border:1px solid rgba(251,191,36,0.3);border-radius:50px;padding:8px 20px 8px 12px;display:flex;align-items:center;gap:12px;box-shadow:0 5px 25px rgba(0,0,0,0.4)}
+        .music-btn{background:linear-gradient(135deg,#fbbf24,#f59e0b);border:none;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#0a0e17;font-size:1.1rem;transition:all 0.2s}
+        .music-btn:hover{transform:scale(1.05);box-shadow:0 0 15px rgba(251,191,36,0.4)}
+        .music-info{display:flex;align-items:center;gap:12px}
+        .music-text{display:flex;align-items:center;gap:8px;color:#e8edf5;font-size:0.9rem}
+        .music-text i{color:#fbbf24}
+        .volume-slider{width:60px;height:4px;background:#374151;border-radius:10px;-webkit-appearance:none;appearance:none}
+        .volume-slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:12px;height:12px;background:#fbbf24;border-radius:50%;cursor:pointer}
+        @media (max-width:600px){.music-player{bottom:15px;right:15px;left:15px;border-radius:40px;justify-content:space-between}.ip-box{flex-direction:column;text-align:center}.ip-info{justify-content:center}}
+        @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+        .star-icon{animation:float 3s ease-in-out infinite}
+        .online-status{display:flex;align-items:center;gap:6px;font-size:0.9rem}
+        .online-dot{width:10px;height:10px;background:#10b981;border-radius:50%;box-shadow:0 0 10px #10b981;animation:pulse 2s infinite}
+        @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
+    </style>
+</head>
+<body>
+    <div class="music-player" id="musicPlayer">
+        <button class="music-btn" id="playPauseBtn"><i class="fas fa-play"></i></button>
+        <div class="music-info">
+            <div class="music-text"><i class="fas fa-music"></i><span>Hujan.mp3</span></div>
+            <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.01" value="0.3">
+        </div>
+    </div>
+    <audio id="bgMusic" loop><source src="Hujan.mp3" type="audio/mpeg">Browser kamu tidak mendukung audio HTML5.</audio>
+    <div class="container">
+        <div class="header">
+            <div class="season-badge"><i class="fas fa-star star-icon"></i> SEASON 2 <i class="fas fa-star star-icon"></i></div>
+            <h1 class="server-title">Stellar SMP</h1>
+            <div class="server-subtitle"><i class="fas fa-globe"></i> Minecraft Bedrock Edition <span class="online-status"><span class="online-dot"></span> Online 24/7</span></div>
+        </div>
+        <div class="ip-box">
+            <div class="ip-info">
+                <div class="ip-address"><i class="fas fa-server"></i><span>premium2.raehost.com</span></div>
+                <div class="port-badge"><i class="fas fa-plug"></i> Port: 19143</div>
+            </div>
+            <button class="copy-btn" id="copyIpBtn"><i class="far fa-copy"></i> Copy IP</button>
+        </div>
+        <div class="info-grid">
+            <div class="info-card"><i class="fas fa-code-branch"></i><h3>Versi</h3><p>Latest</p></div>
+            <div class="info-card"><i class="fas fa-gamepad"></i><h3>Platform</h3><p>Bedrock</p></div>
+            <div class="info-card"><i class="fas fa-compass"></i><h3>Mode</h3><p>Survival RPG</p></div>
+            <div class="info-card"><i class="fas fa-dragon"></i><h3>Theme</h3><p>Fantasy</p></div>
+        </div>
+        <div class="main-content">
+            <div>
+                <div class="section">
+                    <div class="section-title"><i class="fas fa-crown"></i> Fitur Server</div>
+                    <div class="feature-tags">
+                        <span class="feature-tag"><i class="fas fa-check-circle"></i> Keep Inventory</span>
+                        <span class="feature-tag"><i class="fas fa-check-circle"></i> PvP</span>
+                        <span class="feature-tag"><i class="fas fa-check-circle"></i> Economy / Shop</span>
+                        <span class="feature-tag"><i class="fas fa-check-circle"></i> Crates</span>
+                        <span class="feature-tag"><i class="fas fa-check-circle"></i> Jobs</span>
+                    </div>
+                </div>
+                <div class="section" style="margin-top:25px;">
+                    <div class="section-title"><i class="fas fa-info-circle"></i> Informasi</div>
+                    <div class="extra-info">
+                        <p><i class="fas fa-calendar-alt"></i> Durasi Ganti Tema: 3 Bulan</p>
+                        <p><i class="fas fa-sync-alt"></i> Bisa ada reset dan perubahan rules</p>
+                        <p><i class="fas fa-users"></i> Bertujuan: Berpetualang & Komunitas</p>
+                    </div>
+                </div>
+                <div class="section" style="margin-top:25px;">
+                    <div class="section-title"><i class="fas fa-gavel"></i> Sistem Hukuman</div>
+                    <ul class="rules-list">
+                        <li class="rule-warn"><i class="fas fa-exclamation-triangle"></i> Peringatan</li>
+                        <li class="rule-warn"><i class="fas fa-lock"></i> Jail / Denda</li>
+                        <li class="rule-bad"><i class="fas fa-door-open"></i> Kick</li>
+                        <li class="rule-bad"><i class="fas fa-ban"></i> Ban</li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div class="section">
+                    <div class="section-title"><i class="fas fa-scroll"></i> Peraturan Server</div>
+                    <div class="rule-section-title">🚫 DILARANG</div>
+                    <ul class="rules-list">
+                        <li class="rule-bad"><i class="fas fa-times-circle"></i> No Griefing</li>
+                        <li class="rule-bad"><i class="fas fa-times-circle"></i> No Stealing</li>
+                        <li class="rule-bad"><i class="fas fa-times-circle"></i> No Dupe Bug / Exploit Apapun</li>
+                        <li class="rule-bad"><i class="fas fa-times-circle"></i> No Cheat / Hack / X-ray</li>
+                        <li class="rule-bad"><i class="fas fa-times-circle"></i> Toxic / Provokasi / Rasis / Spam</li>
+                        <li class="rule-bad"><i class="fas fa-times-circle"></i> Kill Random Tanpa Alasan</li>
+                        <li class="rule-bad"><i class="fas fa-times-circle"></i> Mengganggu Player AFK</li>
+                        <li class="rule-bad"><i class="fas fa-times-circle"></i> Merusak Area Spawn Player</li>
+                        <li class="rule-bad"><i class="fas fa-times-circle"></i> Promosi / Share Link</li>
+                    </ul>
+                    <div class="rule-section-title" style="margin-top:20px;">✅ DIWAJIBKAN</div>
+                    <ul class="rules-list">
+                        <li class="rule-good"><i class="fas fa-check-circle"></i> Saling Menghargai Antar Player</li>
+                        <li class="rule-good"><i class="fas fa-check-circle"></i> Izin Mengambil Barang Orang Lain</li>
+                        <li class="rule-good"><i class="fas fa-check-circle"></i> PvP Harus Bersepakat Dulu</li>
+                        <li class="rule-good"><i class="fas fa-check-circle"></i> Laporkan Jika Ada Bug</li>
+                        <li class="rule-good"><i class="fas fa-check-circle"></i> Patuhi Admin (Masih Masuk Akal)</li>
+                    </ul>
+                </div>
+                <div class="section" style="margin-top:25px;">
+                    <div class="section-title"><i class="fas fa-link"></i> Komunitas & Info</div>
+                    <div class="social-links">
+                        <a href="https://discord.gg/GbymvAQWM" target="_blank" class="social-link"><i class="fab fa-discord"></i><div><h4>Discord Server</h4><p>Join komunitas, dapatkan info update!</p></div><i class="fas fa-arrow-right"></i></a>
+                        <a href="https://chat.whatsapp.com/FLrbRnn7hiU9d6ru5OOVjE?mode=gi_t" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i><div><h4>WhatsApp Group</h4><p>Grup chat player Stellar SMP</p></div><i class="fas fa-arrow-right"></i></a>
+                        <a href="https://ninjablockgg.notion.site/Weapons-Powers-Wiki-229137d1f8c580c6b31bd93a627e1b63" target="_blank" class="social-link"><i class="fas fa-book"></i><div><h4>Weapons & Powers Wiki</h4><p>Panduan lengkap senjata dan kemampuan</p></div><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p>✨ Stellar SMP S2 — Dibuat dengan <i class="fas fa-heart"></i> untuk komunitas ✨</p>
+            <p style="margin-top:8px;font-size:0.8rem;">© 2024 Stellar SMP • Minecraft Bedrock Edition</p>
+        </div>
+                                          </div>
+      <script>
+        const copyBtn=document.getElementById('copyIpBtn');const serverIp='premium2.raehost.com:19143';
+        copyBtn.addEventListener('click',function(){navigator.clipboard.writeText(serverIp).then(()=>{copyBtn.innerHTML='<i class="fas fa-check"></i> Copied!';copyBtn.classList.add('copied');setTimeout(()=>{copyBtn.innerHTML='<i class="far fa-copy"></i> Copy IP';copyBtn.classList.remove('copied')},2000)}).catch(err=>{const textArea=document.createElement('textarea');textArea.value=serverIp;document.body.appendChild(textArea);textArea.select();document.execCommand('copy');document.body.removeChild(textArea);copyBtn.innerHTML='<i class="fas fa-check"></i> Copied!';copyBtn.classList.add('copied');setTimeout(()=>{copyBtn.innerHTML='<i class="far fa-copy"></i> Copy IP';copyBtn.classList.remove('copied')},2000)})});
+        const bgMusic=document.getElementById('bgMusic');const playPauseBtn=document.getElementById('playPauseBtn');const volumeSlider=document.getElementById('volumeSlider');
+        bgMusic.volume=0.3;let musicStarted=false;
+        function startMusic(){if(!musicStarted){bgMusic.play().then(()=>{musicStarted=true;playPauseBtn.innerHTML='<i class="fas fa-pause"></i>'}).catch(e=>{console.log('Autoplay blocked, klik tombol play')})}}
+        window.addEventListener('load',()=>{setTimeout(()=>{startMusic()},500)});
+        playPauseBtn.addEventListener('click',()=>{if(bgMusic.paused){bgMusic.play();playPauseBtn.innerHTML='<i class="fas fa-pause"></i>';musicStarted=true}else{bgMusic.pause();playPauseBtn.innerHTML='<i class="fas fa-play"></i>'}});
+        volumeSlider.addEventListener('input',(e)=>{bgMusic.volume=e.target.value});
+        document.body.addEventListener('click',function initMusic(){if(!musicStarted){startMusic()}},{once:false});
+    </script>
+</body>
+</html>
